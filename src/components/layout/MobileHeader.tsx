@@ -17,9 +17,14 @@ import {
   Film,
   Tv,
   LogOut,
+  Image,
+  Send,
+  Star,
+  Link2,
+  Users,
 } from "lucide-react";
 
-const navItems = [
+const navItems: { icon: any; label: string; path: string; highlight?: boolean }[] = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/" },
   { icon: MessageCircle, label: "Configurar WhatsApp", path: "/whatsapp" },
   { icon: CreditCard, label: "Mercado Pago", path: "/pagamento" },
@@ -32,6 +37,11 @@ const navItems = [
   { icon: Globe, label: "Todos Esportes", path: "/todos-esportes" },
   { icon: Film, label: "Gerar Banner Filme", path: "/gerar-banner-filme" },
   { icon: Tv, label: "Gerar Banner Séries", path: "/gerar-banner-series" },
+  { icon: Image, label: "Logo", path: "/logo", highlight: true },
+  { icon: Send, label: "Meu Telegram", path: "/telegram" },
+  { icon: Star, label: "Comprar Créditos", path: "/comprar-creditos", highlight: true },
+  { icon: Link2, label: "Link de Indicação", path: "/indicacao" },
+  { icon: Users, label: "Revendas", path: "/revendas" },
 ];
 
 export const MobileHeader = () => {
@@ -65,7 +75,9 @@ export const MobileHeader = () => {
                 className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                   isActive
                     ? "bg-primary text-primary-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    : item.highlight
+                      ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white hover:from-purple-500 hover:to-purple-400"
+                      : "text-muted-foreground hover:text-foreground hover:bg-secondary"
                 }`}
               >
                 <item.icon className="h-4 w-4" />
