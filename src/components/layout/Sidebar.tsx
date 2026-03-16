@@ -14,6 +14,11 @@ import {
   Tv,
   LogOut,
   Zap,
+  Image,
+  Send,
+  Star,
+  Link2,
+  Users,
 } from "lucide-react";
 
 const navItems = [
