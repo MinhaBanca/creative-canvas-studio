@@ -22,6 +22,7 @@ import {
   Star,
   Link2,
   Users,
+  GalleryHorizontalEnd,
 } from "lucide-react";
 
 const navItems: { icon: any; label: string; path: string; highlight?: boolean }[] = [
