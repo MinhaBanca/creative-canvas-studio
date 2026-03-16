@@ -21,7 +21,7 @@ import {
   Users,
 } from "lucide-react";
 
-const navItems = [
+const navItems: { icon: any; label: string; path: string; badge?: string; highlight?: boolean }[] = [
   { icon: LayoutDashboard, label: "Dashboard", path: "/" },
   { icon: MessageCircle, label: "Configurar WhatsApp", path: "/whatsapp" },
   { icon: CreditCard, label: "Mercado Pago", path: "/pagamento", badge: "EM BREVE" },
