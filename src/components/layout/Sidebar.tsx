@@ -65,7 +65,9 @@ export const Sidebar = () => {
               className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
                 isActive
                   ? "bg-primary text-primary-foreground"
-                  : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                  : item.highlight
+                    ? "bg-gradient-to-r from-purple-600 to-purple-500 text-white hover:from-purple-500 hover:to-purple-400"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
               }`}
             >
               <item.icon className="h-4 w-4 flex-shrink-0" />
