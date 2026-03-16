@@ -29,6 +29,11 @@ const navItems = [
   { icon: Globe, label: "Todos Esportes", path: "/todos-esportes" },
   { icon: Film, label: "Gerar Banner Filme", path: "/gerar-banner-filme" },
   { icon: Tv, label: "Gerar Banner Séries/Novelas", path: "/gerar-banner-series" },
+  { icon: Image, label: "Logo", path: "/logo", highlight: true },
+  { icon: Send, label: "Meu Telegram", path: "/telegram" },
+  { icon: Star, label: "Comprar Créditos", path: "/comprar-creditos", highlight: true },
+  { icon: Link2, label: "Link de Indicação", path: "/indicacao" },
+  { icon: Users, label: "Revendas", path: "/revendas" },
 ];
 
 export const Sidebar = () => {
