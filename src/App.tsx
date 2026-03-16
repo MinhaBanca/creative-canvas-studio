@@ -18,6 +18,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/gerar-futebol" element={<GerarFutebolPage />} />
           <Route path="/:category/:type" element={<GeneratePage />} />
           <Route path="/:category" element={<GeneratePage />} />
           <Route path="*" element={<NotFound />} />
