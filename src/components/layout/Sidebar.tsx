@@ -35,6 +35,7 @@ const navItems: { icon: any; label: string; path: string; badge?: string; highli
   { icon: Globe, label: "Todos Esportes", path: "/todos-esportes" },
   { icon: Film, label: "Gerar Banner Filme", path: "/gerar-banner-filme" },
   { icon: Tv, label: "Gerar Banner Séries/Novelas", path: "/gerar-banner-series" },
+  { icon: GalleryHorizontalEnd, label: "Gerar Carrossel", path: "/gerar-carrossel" },
   { icon: Image, label: "Logo", path: "/logo", highlight: true },
   { icon: Send, label: "Meu Telegram", path: "/telegram" },
   { icon: Star, label: "Comprar Créditos", path: "/comprar-creditos", highlight: true },
