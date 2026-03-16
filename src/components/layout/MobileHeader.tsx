@@ -1,40 +1,86 @@
-import { Link } from "react-router-dom";
-import { Zap, Menu } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Zap,
+  LayoutDashboard,
+  MessageCircle,
+  CreditCard,
+  Video,
+  Megaphone,
+  Trophy,
+  BookOpen,
+  Dribbble,
+  Flame,
+  Globe,
+  Film,
+  Tv,
+  LogOut,
+} from "lucide-react";
 
 const navItems = [
-  { label: "Dashboard", path: "/" },
-  { label: "Esportes", path: "/sports" },
-  { label: "Filmes", path: "/entertainment" },
-  { label: "Banners", path: "/banners" },
+  { icon: LayoutDashboard, label: "Dashboard", path: "/" },
+  { icon: MessageCircle, label: "Configurar WhatsApp", path: "/whatsapp" },
+  { icon: CreditCard, label: "Mercado Pago", path: "/pagamento" },
+  { icon: Video, label: "Gerar Vídeo", path: "/gerar-video" },
+  { icon: Megaphone, label: "Vídeo Divulgação", path: "/video-divulgacao" },
+  { icon: Trophy, label: "Gerar Futebol", path: "/gerar-futebol" },
+  { icon: BookOpen, label: "Guia Futebol", path: "/guia-futebol" },
+  { icon: Dribbble, label: "Gerar NBA", path: "/gerar-nba" },
+  { icon: Flame, label: "Gerar UFC", path: "/gerar-ufc" },
+  { icon: Globe, label: "Todos Esportes", path: "/todos-esportes" },
+  { icon: Film, label: "Gerar Banner Filme", path: "/gerar-banner-filme" },
+  { icon: Tv, label: "Gerar Banner Séries", path: "/gerar-banner-series" },
 ];
 
 export const MobileHeader = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
   return (
-    <div className="lg:hidden border-b border-border bg-sidebar">
-      <div className="flex items-center justify-between px-4 py-3">
+    <div className="lg:hidden">
+      <header className="flex items-center justify-between px-4 py-3 border-b border-border bg-sidebar">
         <div className="flex items-center gap-2">
           <Zap className="h-6 w-6 text-primary" />
-          <span className="text-lg font-display font-bold text-foreground">ContentGen</span>
+          <span className="text-lg font-display font-bold">
+            <span className="text-primary">GERADOR</span>
+            <span className="text-accent">PRO</span>
+          </span>
         </div>
-        <button onClick={() => setOpen(!open)} className="p-2 text-muted-foreground">
-          <Menu className="h-5 w-5" />
+        <button onClick={() => setOpen(!open)} className="text-foreground p-1">
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
-      </div>
+      </header>
+
       {open && (
-        <nav className="px-4 pb-3 space-y-1">
-          {navItems.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              onClick={() => setOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-muted-foreground hover:text-foreground hover:bg-secondary transition-all"
-            >
-              {item.label}
-            </Link>
-          ))}
+        <nav className="bg-sidebar border-b border-border px-3 py-2 space-y-0.5 max-h-[70vh] overflow-y-auto">
+          {navItems.map((item) => {
+            const isActive = location.pathname === item.path;
+            return (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all ${
+                  isActive
+                    ? "bg-primary text-primary-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                }`}
+              >
+                <item.icon className="h-4 w-4" />
+                {item.label}
+              </Link>
+            );
+          })}
+          <Link
+            to="/sair"
+            onClick={() => setOpen(false)}
+            className="flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary"
+          >
+            <LogOut className="h-4 w-4" />
+            Sair
+          </Link>
         </nav>
       )}
     </div>
