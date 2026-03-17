@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, Check, Download, Wand2, Trophy, Users, Calendar,
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
+import ModeSelection from "@/components/futebol/ModeSelection";
+import AutoMode from "@/components/futebol/AutoMode";
 
 // ── Mock Data ──────────────────────────────────────────────
 
@@ -86,6 +88,7 @@ const steps = [
 // ── Component ──────────────────────────────────────────────
 
 const GerarFutebolPage = () => {
+  const [mode, setMode] = useState<"select" | "manual" | "auto">("select");
   const [step, setStep] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState<typeof templates[0] | null>(null);
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
@@ -417,43 +420,62 @@ const GerarFutebolPage = () => {
         </Link>
         <h1 className="text-2xl font-display font-bold text-foreground">
           <Trophy className="inline h-6 w-6 text-primary mr-2 -mt-1" />
-          Gerar Banner Futebol
+          Gerador de Futebol
         </h1>
         <p className="text-sm text-muted-foreground mt-1">
-          Monte sua agenda de jogos em poucos cliques
+          Crie artes incríveis e profissionais em poucos cliques.
         </p>
       </div>
 
-      {renderStepper()}
+      {mode === "select" && (
+        <ModeSelection onSelectMode={(m) => setMode(m)} />
+      )}
 
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={step}
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -20 }}
-          transition={{ duration: 0.2 }}
-        >
-          {stepContent[step]()}
-        </motion.div>
-      </AnimatePresence>
+      {mode === "auto" && (
+        <AutoMode onBack={() => setMode("select")} />
+      )}
 
-      {/* Navigation */}
-      {step < 3 && (
-        <div className="flex justify-between mt-8">
-          <Button
-            variant="outline"
-            onClick={() => setStep(step - 1)}
-            disabled={step === 0}
+      {mode === "manual" && (
+        <>
+          <button
+            onClick={() => { setMode("select"); setStep(0); }}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
-            Anterior
-          </Button>
-          <Button onClick={handleNext} disabled={!canAdvance()}>
-            Próximo
-            <ArrowRight className="h-4 w-4 ml-2" />
-          </Button>
-        </div>
+            <ArrowLeft className="h-4 w-4" />
+            Voltar aos modos
+          </button>
+
+          {renderStepper()}
+
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -20 }}
+              transition={{ duration: 0.2 }}
+            >
+              {stepContent[step]()}
+            </motion.div>
+          </AnimatePresence>
+
+          {step < 3 && (
+            <div className="flex justify-between mt-8">
+              <Button
+                variant="outline"
+                onClick={() => setStep(step - 1)}
+                disabled={step === 0}
+              >
+                <ArrowLeft className="h-4 w-4 mr-2" />
+                Anterior
+              </Button>
+              <Button onClick={handleNext} disabled={!canAdvance()}>
+                Próximo
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </Button>
+            </div>
+          )}
+        </>
       )}
     </DashboardLayout>
   );
