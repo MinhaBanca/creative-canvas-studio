@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight, Check, Download, Wand2, Trophy, Users, Calendar,
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { toast } from "@/hooks/use-toast";
+import ModeSelection from "@/components/futebol/ModeSelection";
+import AutoMode from "@/components/futebol/AutoMode";
 
 // ── Mock Data ──────────────────────────────────────────────
 
