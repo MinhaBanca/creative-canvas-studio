@@ -88,6 +88,7 @@ const steps = [
 // ── Component ──────────────────────────────────────────────
 
 const GerarFutebolPage = () => {
+  const [mode, setMode] = useState<"select" | "manual" | "auto">("select");
   const [step, setStep] = useState(0);
   const [selectedTemplate, setSelectedTemplate] = useState<typeof templates[0] | null>(null);
   const [selectedGames, setSelectedGames] = useState<string[]>([]);
