@@ -6,6 +6,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import GeneratePage from "./pages/GeneratePage.tsx";
 import GerarFutebolPage from "./pages/GerarFutebolPage.tsx";
+import GuiaFutebolPage from "./pages/GuiaFutebolPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
