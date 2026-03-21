@@ -20,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/gerar-futebol" element={<GerarFutebolPage />} />
+          <Route path="/guia-futebol" element={<GuiaFutebolPage />} />
           <Route path="/:category/:type" element={<GeneratePage />} />
           <Route path="/:category" element={<GeneratePage />} />
           <Route path="*" element={<NotFound />} />
