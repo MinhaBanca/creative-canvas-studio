@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import GeneratePage from "./pages/GeneratePage.tsx";
 import GerarFutebolPage from "./pages/GerarFutebolPage.tsx";
 import GuiaFutebolPage from "./pages/GuiaFutebolPage.tsx";
+import GerarVideoPage from "./pages/GerarVideoPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/gerar-futebol" element={<GerarFutebolPage />} />
           <Route path="/guia-futebol" element={<GuiaFutebolPage />} />
+          <Route path="/gerar-video" element={<GerarVideoPage />} />
           <Route path="/:category/:type" element={<GeneratePage />} />
           <Route path="/:category" element={<GeneratePage />} />
           <Route path="*" element={<NotFound />} />
