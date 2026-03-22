@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import GeneratePage from "./pages/GeneratePage.tsx";
 import GerarFutebolPage from "./pages/GerarFutebolPage.tsx";
 import GuiaFutebolPage from "./pages/GuiaFutebolPage.tsx";
+import GerarVideoPage from "./pages/GerarVideoPage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
