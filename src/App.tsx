@@ -24,6 +24,7 @@ const App = () => (
           <Route path="/gerar-futebol" element={<GerarFutebolPage />} />
           <Route path="/guia-futebol" element={<GuiaFutebolPage />} />
           <Route path="/gerar-video" element={<GerarVideoPage />} />
+          <Route path="/gerar-banner-filme" element={<GerarBannerFilmePage />} />
           <Route path="/:category/:type" element={<GeneratePage />} />
           <Route path="/:category" element={<GeneratePage />} />
           <Route path="*" element={<NotFound />} />
