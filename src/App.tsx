@@ -9,6 +9,7 @@ import GerarFutebolPage from "./pages/GerarFutebolPage.tsx";
 import GuiaFutebolPage from "./pages/GuiaFutebolPage.tsx";
 import GerarVideoPage from "./pages/GerarVideoPage.tsx";
 import GerarBannerFilmePage from "./pages/GerarBannerFilmePage.tsx";
+import GerarBannerSeriePage from "./pages/GerarBannerSeriePage.tsx";
 import NotFound from "./pages/NotFound.tsx";
 
 const queryClient = new QueryClient();
