@@ -19,7 +19,7 @@ const options = [
     id: "novela" as const,
     title: "Novela",
     desc: "Episódios diários, conteúdo popular",
-    icon: Drama,
+    icon: Theater,
     emoji: "🎭",
   },
 ];
