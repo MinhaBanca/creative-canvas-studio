@@ -28,6 +28,7 @@ const App = () => (
           <Route path="/gerar-video" element={<GerarVideoPage />} />
           <Route path="/gerar-banner-filme" element={<GerarBannerFilmePage />} />
           <Route path="/gerar-banner-series" element={<GerarBannerSeriePage />} />
+          <Route path="/gerar-ufc" element={<GerarUFCPage />} />
           <Route path="/:category/:type" element={<GeneratePage />} />
           <Route path="/:category" element={<GeneratePage />} />
           <Route path="*" element={<NotFound />} />
