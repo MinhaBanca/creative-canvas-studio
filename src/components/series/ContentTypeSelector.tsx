@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { Tv, Drama, Check } from "lucide-react";
+import { Tv, Theater, Check } from "lucide-react";
 
 interface ContentTypeSelectorProps {
   value: "serie" | "novela" | null;
